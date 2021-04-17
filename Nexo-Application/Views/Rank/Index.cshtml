@@ -1,0 +1,133 @@
+﻿@model ICollection<NexoApplication.Models.Entities.Cliente>
+
+@{
+    ViewData["Title"] = "Classificação";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+
+<h3 class="m-4 text-black-50">Clientes Prata</h3>
+<table class="table table-bordered table-striped m-3 mt-4">
+    <thead>
+        <tr>
+            <th>
+                Nome
+            </th>
+            <th>
+                Sobrenome
+            </th>
+            <th>
+                Data de Cadastro
+            </th>
+            <th>
+                E-mail
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var cliente in ViewBag.SilverClients)
+        {
+            <tr>
+                <td width="25%">@cliente.Nome</td>
+                <td width="25%">@cliente.SobreNome</td>
+                <td width="25%">@cliente.DataCadastro</td>
+                <td width="50%">@cliente.Email</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h3 class="m-4 text-black-50">Clientes Ouro</h3>
+<table class="table table-bordered table-striped m-3">
+    <thead>
+        <tr>
+            <th>
+                Nome
+            </th>
+            <th>
+                Sobrenome
+            </th>
+            <th>
+                Data de Cadastro
+            </th>
+            <th>
+                E-mail
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var cliente in ViewBag.GoldClients)
+        {
+            <tr>
+                <td width="25%">@cliente.Nome</td>
+                <td width="25%">@cliente.SobreNome</td>
+                <td width="25%">@cliente.DataCadastro</td>
+                <td width="50%">@cliente.Email</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h3 class="m-4 text-black-50">Clientes Platina</h3>
+<table class="table table-bordered table-striped m-3">
+    <thead>
+        <tr>
+            <th>
+                Nome
+            </th>
+            <th>
+                Sobrenome
+            </th>
+            <th>
+                Data de Cadastro
+            </th>
+            <th>
+                E-mail
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var cliente in ViewBag.PlatinumClients)
+        {
+            <tr>
+                <td width="25%">@cliente.Nome</td>
+                <td width="25%">@cliente.SobreNome</td>
+                <td width="25%">@cliente.DataCadastro</td>
+                <td width="50%">@cliente.Email</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h3 class="m-4 text-black-50">Clientes Diamante</h3>
+<table class="table table-bordered table-striped m-3">
+    <thead>
+        <tr>
+            <th>
+                Nome
+            </th>
+            <th>
+                Sobrenome
+            </th>
+            <th>
+                Data de Cadastro
+            </th>
+            <th>
+                E-mail
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var cliente in ViewBag.DiamondClients)
+        {
+            <tr>
+                <td width="25%">@cliente.Nome</td>
+                <td width="25%">@cliente.SobreNome</td>
+                <td width="25%">@cliente.DataCadastro</td>
+                <td width="50%">@cliente.Email</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

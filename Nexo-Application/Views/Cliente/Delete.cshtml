@@ -1,0 +1,72 @@
+﻿@model NexoApplication.Models.Entities.Cliente
+
+@{
+    ViewData["Title"] = "Deletar";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form method="post" asp-action="DeleteCliente">
+    <input asp-for="ClienteId" hidden />
+    <div class="border p-3">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group row">
+            <h2 class="pl-3 text-info">Deletar Cliente</h2>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group row">
+                    <div class="col-2 pt-1">
+                        <label asp-for="Nome"></label>
+                    </div>
+                    <div class="col-4">
+                        <input asp-for="Nome" type="text" class="form-control" disabled />
+                    </div>
+                    <div class="col-2 pt-1">
+                        <label asp-for="SobreNome"></label>
+                    </div>
+                    <div class="col-4">
+                        <input asp-for="SobreNome" type="text" class="form-control" disabled />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-2 pt-1">
+                        <label asp-for="Email"></label>
+                    </div>
+                    <div class="col-4">
+                        <input asp-for="Email" type="text" required class="form-control" disabled/>
+                    </div>
+                    <div class="col-2 pt-1">
+                        Data de Cadastro
+                    </div>
+                    <div class="col-2">
+                        <output type="text" class="input-group-text" style="height:40px; width: 200px" />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-2 pt-1">
+                        Ativo
+                    </div>
+                    <div class="col-2 pt-1">
+                        <input type="checkbox" class="custom-checkbox" disabled />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-4 row offset-4">
+                        <div class="col">
+                            <a asp-action="Index" class="btn btn-secondary w-75">Cancelar</a>
+                        </div>
+                        <div class="col">
+                            <button type="submit" asp-action="DeleteCliente" asp-route-Id="@Model.ClienteId" class="btn btn-danger w-75">Deletar</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+

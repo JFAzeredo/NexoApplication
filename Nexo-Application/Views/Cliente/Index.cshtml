@@ -1,0 +1,73 @@
+﻿@model IEnumerable<NexoApplication.Models.Entities.Cliente>
+@{
+    ViewData["Title"] = "Clientes";
+}
+
+<h1>@ViewData["Title"]</h1>
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-12 text-center">
+            <a asp-controller="Cliente" asp-action="Create" class="btn btn-success">
+                Cadastrar Novo Cliente
+            </a>
+        </div>
+        <div class="col-12 ml-auto mr-auto">
+            <form class="form row">
+                <select name="master" class="form-group input-group input-group-text  w-50 h-50 m-2 ml-auto" required placeholder="Buscar por master">
+                    <option value="Prata">Prata</option>
+                    <option value="Ouro">Ouro</option>
+                    <option value="Platina">Platina</option>
+                    <option value="Diamante">Diamante</option>
+                </select>
+                <button type="submit" asp-action="Busca" asp-controller="Cliente" class="form-group btn btn-success w-25 m-2 mr-auto">Buscar</button>
+            </form>
+        </div>
+    </div>
+
+    @if(Model.Count() > 0)
+    {
+        <table class="table table-bordered table-striped m-3">
+            <thead>
+                <tr>
+                    <th>
+                        Nome
+                    </th>
+                    <th>
+                        Sobrenome
+                    </th>
+                    <th>
+                        Data de Cadastro
+                    </th>
+                    <th>
+                        E-mail
+                    </th>
+                    <th>
+
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var cliente in Model)
+                {
+                <tr>
+                    <td width="25%"><a asp-controller="Cliente" asp-action="Detail" asp-route-Id="@cliente.ClienteId">@cliente.Nome</a></td>
+                    <td width="25%">@cliente.SobreNome</td>
+                    <td width="25%">@cliente.DataCadastro</td>
+                    <td width="50%">@cliente.Email</td>
+                    <td class="text-center">
+                        <div class="w-100 btn-group" role="group">
+                            <a asp-controller="Cliente" asp-action="Edit" asp-route-Id="@cliente.ClienteId" class="btn btn-primary">Editar</a>
+                            <a asp-controller="Cliente" asp-action="Delete" asp-route-Id="@cliente.ClienteId" class="btn btn-danger">Deletar</a>
+                        </div> 
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>Nenhum cliente encontrado.</p>
+    }
+</div>
+
